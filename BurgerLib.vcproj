@@ -141,6 +141,10 @@
 			Name="Pieces"
 			>
 			<File
+				RelativePath=".\Pieces\StringUtil.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\Pieces\Tokenizer.cpp"
 				>
 			</File>
