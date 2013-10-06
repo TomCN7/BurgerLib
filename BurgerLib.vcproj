@@ -161,7 +161,55 @@
 			Name="Algorithms"
 			>
 			<File
+				RelativePath=".\Algorithms\BigInteger.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Algorithms\BiGraph.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Algorithms\Flow.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Algorithms\Geometry.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Algorithms\Graph.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Algorithms\Misc.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Algorithms\MST.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Algorithms\SCC.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Algorithms\SegmentTree.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Algorithms\Set.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\Algorithms\Sort.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Algorithms\SSSP.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Algorithms\Tri.cpp"
 				>
 			</File>
 		</Filter>
