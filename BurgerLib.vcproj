@@ -141,6 +141,14 @@
 			Name="Pieces"
 			>
 			<File
+				RelativePath=".\Pieces\LogDef.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Pieces\Networking.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\Pieces\StringUtil.cpp"
 				>
 			</File>
