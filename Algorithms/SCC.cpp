@@ -40,10 +40,12 @@ void DFS_VISIT2(int u, vector<int> &T)
 	color[u] = label;
     T.PB(u);
 	for (list<pair<int,int> >::iterator it(topological_order.begin()); it != topological_order.end(); it++)
+	{
 		if (GT[u][it->first] && color[it->first] == 0)
         {
 			DFS_VISIT2(it->first, T) ;
 		}
+	}
 }
 
 bool cmp(pair<int,int> x, pair<int,int> y)
@@ -63,11 +65,13 @@ void SCC()
     label = 0;
 
 	for (list<pair<int,int> >::iterator it(topological_order.begin()); it != topological_order.end(); ++it)
+	{
 		if (color[it->first] == 0)
         {
 			vector<int> T;
             label++;
 			DFS_VISIT2(it->first, T);
 		}
-		return;
+	}
+	return;
 }

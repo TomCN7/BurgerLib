@@ -10,6 +10,7 @@ bool bSearched[MAXX];
 bool DfsFind(int i)
 {
 	for (int j = 0; j < nY; ++j)
+	{
 		if (bGraph[i][j] && !bSearched[j])
 		{
 			bSearched[j] = true;
@@ -19,7 +20,8 @@ bool DfsFind(int i)
 				return true;
 			}
 		}
-		return false;
+	}
+	return false;
 }
 
 int Matching()
@@ -56,6 +58,7 @@ int BFS_Matching()
 		for (open[nCur = nTail = 0] = i; nCur <= nTail && cx[i] == -1; ++nCur)
 		{
 			for (int u = open[nCur], v = 0; v < nY && cx[i] == -1; ++v)
+			{
 				if (G[u][v] && mk[v] != i)
 				{
 					mk[v] = i; 
@@ -65,9 +68,11 @@ int BFS_Matching()
 						pred[open[nTail]] = u; 
 						continue;
 					}
+
 					for (int d = u, e = v; d != -1;
 						t = cx[d], cx[d] = e, cy[e] = d, e = t, d = pred[d]);
 				}
+			}
 		}
 		if (cx[i] != -1) ++nAns;
 	}

@@ -1,4 +1,5 @@
-struct Point{
+struct Point
+{
 	Point(int a = 0, int b = 0) : x(a), y(b){}
 	int x;
 	int y;

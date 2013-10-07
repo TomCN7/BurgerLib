@@ -1,8 +1,9 @@
 //闰年的判断：
-#define RUN(x) (x%400==0||(x%4==0 && x%100)) 
+#define RUN(x) (x % 400 == 0 || (x % 4 == 0 && x % 100)) 
 
 //判断二进制表示中有多少个1
-int pop(unsigned x) {
+int pop(unsigned x)
+{
 	x = x - ((x >> 1) & 0x55555555); 
 	x = (x & 0x33333333) + ((x >> 2) & 0x33333333); 
 	x = (x + (x >> 4)) & 0x0F0F0F0F; 
@@ -22,7 +23,7 @@ int dayofweek(int y, int m, int d)	/* 0 = Sunday */
 /*计算组合；调用allCombinations(0,0,result);*/
 //【R.size(): (m)  |   n(n)】     C(n,m)
 // R.resize(m); ---R中先要预留m个位置
-void allCombinations(int idx, int minVal, vector<int>& R)
+void allCombinations(int idx, int minVal, vector<int> &R)
 {
 	if (idx == R.size())
     {
@@ -38,12 +39,16 @@ void allCombinations(int idx, int minVal, vector<int>& R)
 	}
 }
 /*计算下一个组合；R中要先存一个组合*/
-bool next_combination(vector<int>& R)
+bool next_combination(vector<int> &R)
 {
 	int idx = R->size() - 1;   //m==SZ(R)
-	for (; idx >= 0; --idx)  if (R[idx] < n - m + idx) break;
+	for (; idx >= 0; --idx)
+		if (R[idx] < n - m + idx)
+			break;
+
 	if (idx < 0) return false;
 	R[idx]++;
+	
     for (int i = idx + 1; i < R->size(); ++i)
         R[i] = R[i - 1] + 1;
 
