@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Algorithms">
+      <UniqueIdentifier>{91666385-cd40-41a2-8d38-44e6ddf4bfb9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pieces">
+      <UniqueIdentifier>{01c17f92-0b7a-4b5a-8a63-556d63bca0de}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Algorithms\BigInteger.cpp">
+      <Filter>Algorithms</Filter>
+    </ClCompile>
+    <ClCompile Include="Algorithms\BiGraph.cpp">
+      <Filter>Algorithms</Filter>
+    </ClCompile>
+    <ClCompile Include="Algorithms\Flow.cpp">
+      <Filter>Algorithms</Filter>
+    </ClCompile>
+    <ClCompile Include="Algorithms\Geometry.cpp">
+      <Filter>Algorithms</Filter>
+    </ClCompile>
+    <ClCompile Include="Algorithms\Graph.cpp">
+      <Filter>Algorithms</Filter>
+    </ClCompile>
+    <ClCompile Include="Algorithms\Misc.cpp">
+      <Filter>Algorithms</Filter>
+    </ClCompile>
+    <ClCompile Include="Algorithms\MST.cpp">
+      <Filter>Algorithms</Filter>
+    </ClCompile>
+    <ClCompile Include="Algorithms\SCC.cpp">
+      <Filter>Algorithms</Filter>
+    </ClCompile>
+    <ClCompile Include="Algorithms\SegmentTree.cpp">
+      <Filter>Algorithms</Filter>
+    </ClCompile>
+    <ClCompile Include="Algorithms\Set.cpp">
+      <Filter>Algorithms</Filter>
+    </ClCompile>
+    <ClCompile Include="Algorithms\Sort.cpp">
+      <Filter>Algorithms</Filter>
+    </ClCompile>
+    <ClCompile Include="Algorithms\SSSP.cpp">
+      <Filter>Algorithms</Filter>
+    </ClCompile>
+    <ClCompile Include="Algorithms\Tri.cpp">
+      <Filter>Algorithms</Filter>
+    </ClCompile>
+    <ClCompile Include="Pieces\Networking.cpp">
+      <Filter>Pieces</Filter>
+    </ClCompile>
+    <ClCompile Include="Pieces\StringUtil.cpp">
+      <Filter>Pieces</Filter>
+    </ClCompile>
+    <ClCompile Include="Pieces\Tokenizer.cpp">
+      <Filter>Pieces</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Pieces\LogDef.h">
+      <Filter>Pieces</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
