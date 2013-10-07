@@ -16,29 +16,36 @@ int dayofweek(int y, int m, int d)	/* 0 = Sunday */
 {
 	static int t[] = {0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4};
 	y -= m < 3;
-	return (y + y/4 - y/100 + y/400 + t[m-1] + d) % 7;
+	return (y + y / 4 - y / 100 + y / 400 + t[m - 1] + d) % 7;
 }
 
 /*计算组合；调用allCombinations(0,0,result);*/
 //【R.size(): (m)  |   n(n)】     C(n,m)
 // R.resize(m); ---R中先要预留m个位置
-Void allCombinations(int idx, int minVal, vector<int>& R){
-	If(idx == R.size()){
+void allCombinations(int idx, int minVal, vector<int>& R)
+{
+	if (idx == R.size())
+    {
 		//do something with R here.
-	}else{
-		For(int i=minVal; i<n; i++){
-			R[idx] = I;
-			allCombinations(idx+1,i+1,R);
+	}
+    else 
+    {
+		for (int i = minVal; i < n; ++i)
+        {
+			R[idx] = i;
+			allCombinations(idx + 1, i + 1, R);
 		}
 	}
 }
 /*计算下一个组合；R中要先存一个组合*/
-bool next_combination(vector<int>& R){
-	int idx = SZ(R)-1;   //m==SZ(R)
-	for(; idx>=0; idx--)  if(R[idx]<n-m+idx) break;
-	if(idx<0) return false;
+bool next_combination(vector<int>& R)
+{
+	int idx = R->size() - 1;   //m==SZ(R)
+	for (; idx >= 0; --idx)  if (R[idx] < n - m + idx) break;
+	if (idx < 0) return false;
 	R[idx]++;
-	REPI(I, idx+1, SZ(R))
-		R[i] = R[i-1]+1;
-	Return true;
+    for (int i = idx + 1; i < R->size(); ++i)
+        R[i] = R[i - 1] + 1;
+
+    return true;
 }

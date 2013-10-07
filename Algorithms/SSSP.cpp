@@ -1,45 +1,55 @@
-Int G[n][n];  //graph
-Int d[n];  //distance
-Int parent[n];   //parent
-Void initialize-single-source(s){
-	For(int i=0; i<n; i++){
-		D[i] = PINF;  parent[i] = -1;
-	　　}
-	　　D[s] = 0;
-}
-Void relax(int u, int v){
-	If(d[v] > d[u]+G[u][v]){
-		D[v] = d[u]+G[u][v];
-		Parent[v] = u;
-	　　　}
-}
-bool BELLMAN-FORD(s){
-	Initialize-single-source(s);
-	For(int i=0; i<n-1; i++){
-		For(int j=0; j<n; j++)
-			For(int k=0; k<n; k++)
-			Relax(j,k);
-	　　　}
-	　　　For(int i=0; i<n; i++)
-		   　　　   For(int j=0; j<n; j++)
-				 　　　      If(d[j] > d[i]+G[i][j]) return false;
-	   　　　Return true;
+int G[n][n];  //graph
+int d[n];  //distance
+int parent[n];   //parent
+void initialize_single_source(s)
+{
+	for (int i = 0; i < n; i++)
+    {
+		d[i] = PINF;
+        parent[i] = -1;
+	}
+	D[s] = 0;
 }
 
+void relax(int u, int v)
+{
+	if (d[v] > d[u] + G[u][v])
+    {
+		D[v] = d[u] + G[u][v];
+		parent[v] = u;
+    }
+}
+bool BELLMAN_FORD(s)
+{
+	initialize_single_source(s);
+	for (int i = 0; i < n - 1; i++)
+    {
+		for (int j = 0; j < n; j++)
+			for(int k=0; k<n; k++)
+			    relax(j, k);
+    }
+    for (int i = 0; i < n; i++)
+        for(int j=0; j<n; j++)
+            if (d[j] > d[i] + G[i][j]) 
+                return false;
 
-Int G[n][n];  //graph
-Int d[n];  //distance
-Int parent[n];   //parent
-Void DAG-SHORTEST-PATHS(s){
-	Topological-sort();
-	Initialize-single-source(s);
-	for(int i=0; i<n; i++)
-		for(int j=0; j<n; j++)
-			if(G[topological_order[i]][j]){
+    return true;
+}
+
+int G[n][n];  //graph
+int d[n];  //distance
+int parent[n];   //parent
+void DAG_SHORTEST_PATHS(s)
+{
+	topological_sort();
+	Initialize_single_source(s);
+	for (int i = 0; i < n; i++)
+		for (int j = 0; j < n; j++)
+			if (G[topological_order[i]][j])
+            {
 				relax(topological_order[i], j);
-			　　　　　　　}
+            }
 }
-
 
 
 /*聞喘set栖糞��(http://www.topcoder.com/tc?module=Static&d1=tutorials&d2=standardTemplateLibrary2) */
@@ -55,24 +65,29 @@ typedef vector<vii> vvii ;
 int N;
 vvii G;
 
-vi Dijkstra(int start) {
-	vi D(N, 987654321) ;
+vi Dijkstra(int start) 
+{
+	vi D(N, 987654321);
 	//start vertex supposed to be 0
-	set<ii> Q ;
+	set<ii> Q;
 	D[start] = 0 ;
 	Q.insert(ii(0,start));   //pair<distance, node>
-	while(!Q.empty()){
+	while (!Q.empty())
+    {
 		ii top = *Q.begin();
 		Q.erase(Q.begin());
 		int v = top.second, d = top.first;
-		tr(G[v],it){   //adjacent nodes of v
+		tr(G[v], it) 
+        {   //adjacent nodes of v
 			int v2 = it->first, cost = it->second;
-			if(D[v2] > D[v]+cost){
-				if(D[v2] != 987654321){        
-					Q.erase(Q.find(ii(D[v2],v2)));
+			if (D[v2] > D[v] + cost)
+            {
+				if (D[v2] != 987654321)
+                {
+					Q.erase(Q.find(ii(D[v2], v2)));
 				}
 				D[v2] = D[v] + cost;
-				Q.insert(ii(D[v2],v2));
+				Q.insert(ii(D[v2], v2));
 			}
 		}
 	}
