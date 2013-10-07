@@ -20,7 +20,9 @@ void insert(string S)
 			idx = T.size() - 1;
 		}
         else   //exist
+		{
 			idx = T[idx][S[i] - 'a'].second;
+		}
 	}
 }
 
@@ -33,6 +35,7 @@ int find(String S)
             return T[idx][S[i] - 'a'].first;
 		if (T[idx][S[i] - 'a'].second < 0)
             return 0;
+
 		idx = T[idx][S[i] - 'a'].second;
 	}
 }

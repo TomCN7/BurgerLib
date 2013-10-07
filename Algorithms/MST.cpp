@@ -94,13 +94,16 @@ public:
 		return x.second < y.second;
 	}
 };
+
 priority_queue<pair<PII, int>, vector<pair<PII,int> >, cmp>   heap;   //pair<pair<node I, node j>, weight>
 void MST_PRIM(int s)
 {  //take node s as the start point
 	visited[s] = true;  
-	for (int i = 0; i < n; ++i) 
+	for (int i = 0; i < n; ++i)
+	{
 		if (G[s][i])
 			heap.push(make_pair(make_pair(s,i), G[s][i]));
+	}
 	int nodes_checked = 1; 
 
 	while(nodes_checked < n && !heap.empty())
@@ -129,19 +132,24 @@ int parent[MAXN];  //parent of x in mst is parent[x]
 int dist[MAXN];
 void MST_PRIM(int s)
 {
-	for (int i = 0; i < n; ++i) 
+	for (int i = 0; i < n; ++i)
+	{
 		if (i != s)
             dist[i] = PINF;
+	}
 	for (int i = 0; i < n; ++i) 
+	{
 		if (i != s)
             dist[i] = min(dist[i], G[s][i]);
+	}
 	parent[s] = -1;
     dist[s] = 0;
 	int checked = 1;
 	while (checked < n)
     {
 		int next = -1;
-		for (int i = 0; i < n; ++i) 
+		for (int i = 0; i < n; ++i)
+		{
 			if (dist[i] != 0)
             { //unchecked
 				if (next == -1 || dist[next] < dist[i])
@@ -149,11 +157,14 @@ void MST_PRIM(int s)
 			}
 			dist[next] = 0;
 			for (int i = 0; i < n; ++i) 
+			{
 				if (dist[i] != 0 && G[next][i] > 0 && G[next][i] < dist[i])
                 {
 					dist[i] = G[next][i];
                     parent[i] = next;
 				}
-				checked++;
+			}
+		}
+		checked++;
 	}
 }

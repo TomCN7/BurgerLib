@@ -38,6 +38,7 @@ void allCombinations(int idx, int minVal, vector<int> &R)
 		}
 	}
 }
+
 /*计算下一个组合；R中要先存一个组合*/
 bool next_combination(vector<int> &R)
 {

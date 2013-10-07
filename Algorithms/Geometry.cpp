@@ -24,7 +24,8 @@ int Direction(Point a, Point b, Point c)
 //判断点c是否在ab点的矩形内
 bool OnSegment(Point a, Point b, Point c)
 {
-	return c.x >= min(a.x, b.x) && c.x <= max(a.x, b.x) && c.y >= min(a.y, b.y) && c.y <= max(a.y, b.y);
+	return c.x >= min(a.x, b.x) && c.x <= max(a.x, b.x) 
+		&& c.y >= min(a.y, b.y) && c.y <= max(a.y, b.y);
 }
 //判断线段p1-p2和线段p3-p4是否相交
 bool SegmentsIntersect(Point p1, Point p2, Point p3, Point p4)
