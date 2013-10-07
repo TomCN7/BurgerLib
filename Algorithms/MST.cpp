@@ -65,9 +65,7 @@ bool cmp(pair<pair<int,int>,int> &x, pair<pair<int,int>,int> &y)
 void MST_KRUSKAL()
 {  //可以是最小生成树，也可以是最大生成树
 	for (int i = 0; i < n; ++i)
-    {
 		f[i] = i;
-	}
 	sort(edges.begin(), edges.end(), cmp);
 	mark.resize(edges.size(), false);
 	for (int i = 0, _I(edges.size()); i < _I; ++i)

@@ -28,7 +28,9 @@ void insert(int cur, int a, int b, int c)
 {
 	int m = (tree[cur].start + tree[cur].end) / 2;
 	if (a == tree[cur].start && b == tree[cur].end)
+	{
 		tree[cur].color = c;
+	}
 	else
     { 
 		tree[cur].color = -1;

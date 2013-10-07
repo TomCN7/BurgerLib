@@ -26,7 +26,7 @@ void insert(string S)
 	}
 }
 
-int find(String S)
+int find(string S)
 {
 	int idx = 0;
     for (int i = 0; i < S.size(); ++i)
@@ -39,6 +39,7 @@ int find(String S)
 		idx = T[idx][S[i] - 'a'].second;
 	}
 }
+
 /*2.使用vector<有序list>来实现trie*/
 /*3.使用double array trie来实现trie*/
 /*4.使用结构体来实现trie*/
