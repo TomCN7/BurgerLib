@@ -57,6 +57,9 @@
     <ClCompile Include="Algorithms\GraphTraversal.cpp">
       <Filter>Algorithms</Filter>
     </ClCompile>
+    <ClCompile Include="Pieces\ContainingRecord.cpp">
+      <Filter>Pieces</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Pieces\LogDef.h">

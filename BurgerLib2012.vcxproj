@@ -77,6 +77,7 @@
     <ClCompile Include="Algorithms\Sort.cpp" />
     <ClCompile Include="Algorithms\SSSP.cpp" />
     <ClCompile Include="Algorithms\Tri.cpp" />
+    <ClCompile Include="Pieces\ContainingRecord.cpp" />
     <ClCompile Include="Pieces\Networking.cpp" />
     <ClCompile Include="Pieces\StringUtil.cpp" />
     <ClCompile Include="Pieces\Tokenizer.cpp" />
