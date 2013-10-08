@@ -12,16 +12,7 @@
     <ClCompile Include="Algorithms\BigInteger.cpp">
       <Filter>Algorithms</Filter>
     </ClCompile>
-    <ClCompile Include="Algorithms\BiGraph.cpp">
-      <Filter>Algorithms</Filter>
-    </ClCompile>
-    <ClCompile Include="Algorithms\Flow.cpp">
-      <Filter>Algorithms</Filter>
-    </ClCompile>
     <ClCompile Include="Algorithms\Geometry.cpp">
-      <Filter>Algorithms</Filter>
-    </ClCompile>
-    <ClCompile Include="Algorithms\Graph.cpp">
       <Filter>Algorithms</Filter>
     </ClCompile>
     <ClCompile Include="Algorithms\Misc.cpp">
@@ -56,6 +47,15 @@
     </ClCompile>
     <ClCompile Include="Pieces\Tokenizer.cpp">
       <Filter>Pieces</Filter>
+    </ClCompile>
+    <ClCompile Include="Algorithms\BipartiteMatching.cpp">
+      <Filter>Algorithms</Filter>
+    </ClCompile>
+    <ClCompile Include="Algorithms\MaximumFlow.cpp">
+      <Filter>Algorithms</Filter>
+    </ClCompile>
+    <ClCompile Include="Algorithms\GraphTraversal.cpp">
+      <Filter>Algorithms</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -65,10 +65,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Algorithms\BigInteger.cpp" />
-    <ClCompile Include="Algorithms\BiGraph.cpp" />
-    <ClCompile Include="Algorithms\Flow.cpp" />
+    <ClCompile Include="Algorithms\BipartiteMatching.cpp" />
     <ClCompile Include="Algorithms\Geometry.cpp" />
-    <ClCompile Include="Algorithms\Graph.cpp" />
+    <ClCompile Include="Algorithms\GraphTraversal.cpp" />
+    <ClCompile Include="Algorithms\MaximumFlow.cpp" />
     <ClCompile Include="Algorithms\Misc.cpp" />
     <ClCompile Include="Algorithms\MST.cpp" />
     <ClCompile Include="Algorithms\SCC.cpp" />
