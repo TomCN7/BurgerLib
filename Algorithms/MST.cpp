@@ -1,6 +1,6 @@
 int n;
 #define MAXN 1005
-int G[MAXN][MAXN];  //Graph
+int G[MAXN][MAXN];  //Graph Weight
 vector<pair<int,int> > edges;   // a lot of memory
 vector<bool> mark;  //marks whether the edge is in MST
 int f[MAXN];  //set; 
@@ -35,6 +35,7 @@ void MST_KRUSKAL()
     {
 		if (find(edges[i].first) == find(edges[i].second))
 			continue;
+
 		myunion(edges[i].first, edges[i].second);
 		mark[i] = true;
 	}
@@ -77,23 +78,26 @@ void MST_KRUSKAL()
 	}
 }
 
+//---------------------prim----------------------------//
+
 //两种方式
 //1. 对所有的相邻边做heap
 int n;
 #define MAXN 1005
 int G[MAXN][MAXN];  //Graph
 bool visited[MAXN];  //mark whether the node has been visited
-vector<pair<int,int> > mst;  //edges in final MST
-class cmp:public greater<pair<PII,int> >
+typedef pair<int,int> edge;
+vector<edge> mst;  //edges in final MST
+class cmp:public greater<pair<edge,int> >
 {
 public:
-	bool operator()(const pair<PII,int> &x, const pair<PII,int> &y)
+	bool operator()(const pair<edge,int> &x, const pair<edge,int> &y)
     {
 		return x.second < y.second;
 	}
 };
 
-priority_queue<pair<PII, int>, vector<pair<PII,int> >, cmp>   heap;   //pair<pair<node I, node j>, weight>
+priority_queue<pair<edge, int>, vector<pair<edge,int> >, cmp>   heap;   //pair<pair<node I, node j>, weight>
 void MST_PRIM(int s)
 {  //take node s as the start point
 	visited[s] = true;  
@@ -102,11 +106,10 @@ void MST_PRIM(int s)
 		if (G[s][i])
 			heap.push(make_pair(make_pair(s,i), G[s][i]));
 	}
-	int nodes_checked = 1; 
 
-	while(nodes_checked < n && !heap.empty())
+	while(!heap.empty())
     {
-		pair<PII,int> _t = heap.top();
+		pair<edge,int> _t = heap.top();
         heap.pop();
 		if (visited[_t.first.second]) 
             continue;
@@ -114,11 +117,9 @@ void MST_PRIM(int s)
 		visited[_t.first.second] = true;  
 		for (int i = 0; i < n; ++i)
         {
-			if (G[_t.first.second][i] && visited[i] == false)
+			if (G[_t.first.second][i] && !visited[i])
 				heap.push(make_pair(make_pair(_t.first.second, i), G[_t.first.second][i]));
         }
-
-		++nodes_checked;
 	}
 }
 
@@ -153,16 +154,18 @@ void MST_PRIM(int s)
 				if (next == -1 || dist[next] < dist[i])
 					next = i;
 			}
-			dist[next] = 0;
-			for (int i = 0; i < n; ++i) 
-			{
-				if (dist[i] != 0 && G[next][i] > 0 && G[next][i] < dist[i])
-                {
-					dist[i] = G[next][i];
-                    parent[i] = next;
-				}
+		}
+		assert(next != -1 && "no mst!");
+		dist[next] = 0;
+		for (int i = 0; i < n; ++i) 
+		{
+			if (dist[i] != 0 && G[next][i] > 0 && G[next][i] < dist[i])
+            {
+				dist[i] = G[next][i];
+                parent[i] = next;
 			}
 		}
-		checked++;
+		++checked;
 	}
 }
+

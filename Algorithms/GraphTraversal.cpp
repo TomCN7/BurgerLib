@@ -1,63 +1,71 @@
 /*BFS具体实现代码*/
-vector<int> color, parent, dist;
+vector<int> Color, Parent, Dist;
 vector<vector<int> > G;
 queue<int> Q;
-int s;	//search from here
+int src;	//search from here
+
+enum
+{
+	WHITE = 0,
+	GRAY,
+	BLACK
+};
 
 void bfs()
 {
 	for (int i = 0; i < G.size(); ++i)
 	{
-		if (i == s)
+		if (i == src)
 			continue;
-		color[i] = 0;   //white
-		dist[i] = PINF;	//positive infinity
-		parent[i] = -1;   //unknown parent
+		Color[i] = WHITE;   //white
+		Dist[i] = INT_MAX;	//positive infinity
+		Parent[i] = -1;   //unknown parent
 	}
 
-	color[s] = 1;   //gray
-	dist[s] = 0;  //distance
-	parent[s] = -1;  //no parent
-	Q.push(s);
+	Color[src] = GRAY;   //gray
+	Dist[src] = 0;  //distance
+	Parent[src] = -1;  //no parent
+	Q.push(src);
 	while (!Q.empty())
 	{
-		int u = Q.back();
+		int u = Q.front();
 		Q.pop();
 		for (int i = 0; i < G[u].size(); ++i)
 		{
-			if(G[u][i] && color[i] == 0)
+			if (G[u][i] && color[i] == WHITE)
 			{  //white
-				color[i] = 1;  //gray
+				color[i] = GRAY;  //gray
 				dist[i] = dist[u] + 1;
 				parent[i] = u;
 				Q.push(i);
 			}
 		}
-		color[u] = 2; //black
+		color[u] = BLACK; //black
 	}
 }
 
-int time;	//search from here 	
+//-------------------------------------
+
+int nTimeCounter; 	
 vector<int> color, parent, start, finish;
 vector<vector<int> > G;		//this is the only input
 list<int> topological_order;
 
 void DFS_VISIT(int u)
 { //depth first search
-	color[u] = 1;  //gray
-	time++;
-	start[u] = time;   //start time
+	color[u] = GRAY;  //gray
+	start[u] = ++nTimeCounter;
 	for (int i = 0; i < G[u].size(); ++i)
 	{
-		if (G[u][i] && color[i] == 0)
+		if (G[u][i] && color[i] == WHITE)
 		{
 			parent[i] = u;  
 			DFS_VISIT(i);
 		}
 	}
-	color[u] = 2;  //black
-	finish[u] = time = time + 1;   //finish time
-	topological_order.push_front(u);  //topological order
+	color[u] = BLACK;  //black
+	finish[u] = ++nTimeCounter;   //finish time
+//	topological_order.push_front(u);  //topological order
 }
 
 void DFS()
@@ -65,10 +73,10 @@ void DFS()
 	color.clear();  
 	color.resize(G.size(), 0);
 	parent = start = finish = color;
-	time = 0;
+	nTimeCounter = 0;
 	for (int i = 0; i < G.size(); ++i)
 	{
-		if (color[i] == 0)
+		if (color[i] == WHITE)
 		{  //white
 			DFS_VISIT(i);
 		}

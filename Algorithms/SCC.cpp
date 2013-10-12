@@ -1,22 +1,25 @@
-int time ;	//search from here 	
-vector<int> color, parent, start, finish ;
-vector<vector<bool> > G ;		//this is the only input
-vector<vector<bool> > GT ;		//this is the only input
-list<pair<int,int> > topological_order ;
+int nTimeCounter;	//search from here 	
+vector<int> color, parent, start, finish;
+vector<vector<bool> > G;		//this is the only input
+vector<vector<bool> > GT;
+list<pair<int,int> > topological_order;
 void DFS_VISIT(int u)
 { //depth first search
-	color[u] = 1 ;  //gray
-	time++ ;
-	start[u]=time ;   //start time
+	color[u] = GRAY;  //gray
+	start[u] = ++nTimeCounter;   //start time
     for (int i = 0; i < G[u].size(); ++i)
-		if (G[u][i] && color[i] == 0)
+	{
+		if (G[u][i] && color[i] == WHITE)
         {
 			parent[i] = u;
             DFS_VISIT(i);
 		}
-		color[u] = 2;  //black
-		finish[u] = time = time + 1;   //finish time
-		topological_order.push_front(make_pair(u, finish[u]));  //topological order
+	}
+	color[u] = BLACK;  //black
+	finish[u] = ++nTimeCounter;   //finish time
+	topological_order.push_front(make_pair(u, finish[u]));  //topological order
+
+	return;
 }
 
 void DFS()
@@ -24,28 +27,28 @@ void DFS()
 	color.clear();  
 	color.resize(G.size(), 0);
     parent = start = finish = color;
-	time = 0;
+	nTimeCounter = 0;
     for (int i = 0; i < G.size(); ++i)
     {
-		if (color[i] == 0)
+		if (color[i] == WHITE)
         {  //white
 			DFS_VISIT(i);
 		}
 	}
 }
 
-int label;
 void DFS_VISIT2(int u, vector<int> &T)
 { //depth first search
-	color[u] = label;
+	color[u] = GRAY;
     T.PB(u);
-	for (list<pair<int,int> >::iterator it(topological_order.begin()); it != topological_order.end(); it++)
+	for (list<pair<int,int> >::iterator it(topological_order.begin()); it != topological_order.end(); ++it)
 	{
-		if (GT[u][it->first] && color[it->first] == 0)
+		if (GT[u][it->first] && color[it->first] == WHITE)
         {
-			DFS_VISIT2(it->first, T) ;
+			DFS_VISIT2(it->first, T);
 		}
 	}
+	color[u] = BLACK;
 }
 
 bool cmp(pair<int,int> x, pair<int,int> y)
@@ -55,6 +58,7 @@ bool cmp(pair<int,int> x, pair<int,int> y)
 void SCC()
 {
 	DFS();
+
     GT = G;
     for (int i = 0; i < G.size(); ++i)
         for (int j = 0; j < G[i].size(); ++j)
@@ -62,16 +66,16 @@ void SCC()
 
     topological_order.sort(cmp);
 	fill(color.begin(), color.end(), 0);
-    label = 0;
 
 	for (list<pair<int,int> >::iterator it(topological_order.begin()); it != topological_order.end(); ++it)
 	{
-		if (color[it->first] == 0)
+		if (color[it->first] == WHITE)
         {
 			vector<int> T;
-            label++;
 			DFS_VISIT2(it->first, T);
+			//cout elements in T as SCC
 		}
 	}
 	return;
 }
+
