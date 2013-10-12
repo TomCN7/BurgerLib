@@ -3,9 +3,9 @@ int d[n];  //distance
 int parent[n];   //parent
 void initialize_single_source(s)
 {
-	for (int i = 0; i < n; i++)
+	for (int i = 0; i < n; ++i)
     {
-		d[i] = PINF;
+		d[i] = INT_MAX;
         parent[i] = -1;
 	}
 	D[s] = 0;
@@ -22,14 +22,14 @@ void relax(int u, int v)
 bool BELLMAN_FORD(s)
 {
 	initialize_single_source(s);
-	for (int i = 0; i < n - 1; i++)
+	for (int i = 0; i < n - 1; ++i)
     {
-		for (int j = 0; j < n; j++)
-			for(int k=0; k<n; k++)
+		for (int j = 0; j < n; ++j)
+			for(int k = 0; k < n; ++k)
 			    relax(j, k);
     }
-    for (int i = 0; i < n; i++)
-        for(int j=0; j<n; j++)
+    for (int i = 0; i < n; ++i)
+        for(int j = 0; j < n; ++j)
             if (d[j] > d[i] + G[i][j]) 
                 return false;
 
@@ -96,8 +96,9 @@ vi Dijkstra(int start)
 
 
 //floyd Algorithm
-for(int k=0; k<cur; k++)
-for(int i=0; i<cur; i++)
-for(int j=0; j<cur; j++)
-P[i][j] = P[i][j] || P[i][k]&&P[k][j];
-P[i][j] = min(P[i][j], P[i][k]+P[k][j]);
+for (int k = 0; k < cur; ++k)
+	for (int i = 0; i < cur; ++i)
+		for(int j = 0; j < cur; ++j)
+			//P[i][j] = P[i][j] || P[i][k] && P[k][j];
+			P[i][j] = min(P[i][j], P[i][k] + P[k][j]);
+
