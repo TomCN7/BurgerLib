@@ -48,3 +48,4 @@ inline void dtSwapEndian(float* v)
     unsigned char* x = (unsigned char*)v;
     dtSwapByte(x+0, x+3); dtSwapByte(x+1, x+2);
 }
+
