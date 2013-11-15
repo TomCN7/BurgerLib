@@ -11,3 +11,40 @@ uint32 htonl(uint32 x) {
 
 	return result;
 }
+
+inline void dtSwapByte(unsigned char* a, unsigned char* b)
+{
+    unsigned char tmp = *a;
+    *a = *b;
+    *b = tmp;
+}
+
+inline void dtSwapEndian(unsigned short* v)
+{
+    unsigned char* x = (unsigned char*)v;
+    dtSwapByte(x+0, x+1);
+}
+
+inline void dtSwapEndian(short* v)
+{
+    unsigned char* x = (unsigned char*)v;
+    dtSwapByte(x+0, x+1);
+}
+
+inline void dtSwapEndian(unsigned int* v)
+{
+    unsigned char* x = (unsigned char*)v;
+    dtSwapByte(x+0, x+3); dtSwapByte(x+1, x+2);
+}
+
+inline void dtSwapEndian(int* v)
+{
+    unsigned char* x = (unsigned char*)v;
+    dtSwapByte(x+0, x+3); dtSwapByte(x+1, x+2);
+}
+
+inline void dtSwapEndian(float* v)
+{
+    unsigned char* x = (unsigned char*)v;
+    dtSwapByte(x+0, x+3); dtSwapByte(x+1, x+2);
+}
