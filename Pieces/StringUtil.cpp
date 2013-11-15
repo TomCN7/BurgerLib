@@ -1,4 +1,5 @@
 //from google protobuf
+//
 
 // Returns a string identical to *input except that the character pointed to
 // by radix_pos (which should be '.') is replaced with the locale-specific
