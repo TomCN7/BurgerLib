@@ -22,6 +22,12 @@
 #include "DetourCommon.h"
 #include <string.h>
 
+inline int hashPos2(int x, int y, int n)
+{
+    return ((x*73856093) ^ (y*19349663)) & (n-1);
+}
+
+
 inline unsigned int dtHashRef(dtPolyRef a)
 {
 	a += ~(a<<15);
