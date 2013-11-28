@@ -10,6 +10,12 @@
     <Filter Include="Compress">
       <UniqueIdentifier>{d5e1bc82-46a9-41a7-bafc-8c14b4ae29dc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Vector">
+      <UniqueIdentifier>{963c7a04-f1bd-4033-a7d4-2e510eb14e8a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DataStructure">
+      <UniqueIdentifier>{3b6d51a3-07a1-4865-a7e0-093d2ef49b83}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Algorithms\BigInteger.cpp">
@@ -66,6 +72,12 @@
     <ClCompile Include="Compress\fastlz.c">
       <Filter>Compress</Filter>
     </ClCompile>
+    <ClCompile Include="Vector\DetourCommon.cpp">
+      <Filter>Vector</Filter>
+    </ClCompile>
+    <ClCompile Include="DataStructure\DetourNode.cpp">
+      <Filter>DataStructure</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Pieces\LogDef.h">
@@ -73,6 +85,21 @@
     </ClInclude>
     <ClInclude Include="Compress\fastlz.h">
       <Filter>Compress</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector\Vector.h">
+      <Filter>Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="DataStructure\Array.h">
+      <Filter>DataStructure</Filter>
+    </ClInclude>
+    <ClInclude Include="Pieces\Time.h">
+      <Filter>Pieces</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector\DetourCommon.h">
+      <Filter>Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="DataStructure\DetourNode.h">
+      <Filter>DataStructure</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

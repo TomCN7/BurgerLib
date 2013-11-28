@@ -78,14 +78,21 @@
     <ClCompile Include="Algorithms\SSSP.cpp" />
     <ClCompile Include="Algorithms\Tri.cpp" />
     <ClCompile Include="Compress\fastlz.c" />
+    <ClCompile Include="DataStructure\DetourNode.cpp" />
     <ClCompile Include="Pieces\ContainingRecord.cpp" />
     <ClCompile Include="Pieces\Networking.cpp" />
     <ClCompile Include="Pieces\StringUtil.cpp" />
     <ClCompile Include="Pieces\Tokenizer.cpp" />
+    <ClCompile Include="Vector\DetourCommon.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Compress\fastlz.h" />
+    <ClInclude Include="DataStructure\Array.h" />
+    <ClInclude Include="DataStructure\DetourNode.h" />
     <ClInclude Include="Pieces\LogDef.h" />
+    <ClInclude Include="Pieces\Time.h" />
+    <ClInclude Include="Vector\DetourCommon.h" />
+    <ClInclude Include="Vector\Vector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
