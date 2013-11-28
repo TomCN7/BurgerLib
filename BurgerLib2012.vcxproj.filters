@@ -7,6 +7,9 @@
     <Filter Include="Pieces">
       <UniqueIdentifier>{01c17f92-0b7a-4b5a-8a63-556d63bca0de}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Compress">
+      <UniqueIdentifier>{d5e1bc82-46a9-41a7-bafc-8c14b4ae29dc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Algorithms\BigInteger.cpp">
@@ -60,10 +63,16 @@
     <ClCompile Include="Pieces\ContainingRecord.cpp">
       <Filter>Pieces</Filter>
     </ClCompile>
+    <ClCompile Include="Compress\fastlz.c">
+      <Filter>Compress</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Pieces\LogDef.h">
       <Filter>Pieces</Filter>
+    </ClInclude>
+    <ClInclude Include="Compress\fastlz.h">
+      <Filter>Compress</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
