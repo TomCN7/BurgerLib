@@ -79,6 +79,7 @@
     <ClCompile Include="Algorithms\Tri.cpp" />
     <ClCompile Include="Compress\fastlz.c" />
     <ClCompile Include="DataStructure\DetourNode.cpp" />
+    <ClCompile Include="Geometry\KTriangulate.cpp" />
     <ClCompile Include="Pieces\ContainingRecord.cpp" />
     <ClCompile Include="Pieces\Networking.cpp" />
     <ClCompile Include="Pieces\StringUtil.cpp" />
